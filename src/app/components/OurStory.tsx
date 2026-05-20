@@ -29,6 +29,8 @@ export function OurStory() {
           </div>
         </div>
 
+
+
         {/* Three Columns Text Below */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Column 1 - Berawal dari Sebuah Inovasi */}

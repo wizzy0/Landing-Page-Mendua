@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 export function SpecialOffers() {
   const offers = [
     {
@@ -26,11 +28,31 @@ export function SpecialOffers() {
       style={{ backgroundColor: '#DC2626' }}
     >
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full translate-y-48 -translate-x-48" />
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.1, 1],
+          opacity: [0.05, 0.1, 0.05],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32" 
+      />
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.05, 0.1, 0.05],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full translate-y-48 -translate-x-48" 
+      />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <h2 
             className="text-5xl md:text-6xl mb-4 text-white"
             style={{ fontFamily: "'Playfair Display', serif" }}
@@ -43,12 +65,16 @@ export function SpecialOffers() {
           >
             Pilih paket kemitraan yang sesuai dengan kebutuhan bisnis Anda
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {offers.map((offer, index) => (
-            <div 
+            <motion.div 
               key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
               className="bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl relative"
               style={{ borderRadius: '12px' }}
             >
@@ -102,9 +128,10 @@ export function SpecialOffers() {
               >
                 Hubungi Kami
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
+
 
         {/* Terms */}
         <div className="mt-12 text-center">

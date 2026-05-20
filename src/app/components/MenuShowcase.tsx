@@ -1,29 +1,40 @@
+import { motion } from 'framer-motion';
+import bakmieImg from '../../assets/images/Bakmie.jpg';
+import dimsumImg from '../../assets/images/Dimsum.jpg';
+import nasiGorengImg from '../../assets/images/Nasi Goreng.jpg';
+
 export function MenuShowcase() {
   const menuItems = [
     {
       name: 'Bakmi Chilli Oil',
       description: 'Mie kuning khas dengan saus chilli oil pedas yang menggugah selera, dilengkapi topping ayam suwir dan sayuran segar',
       price: 'Rp 25.000',
-      image: 'https://images.unsplash.com/photo-1685209743819-dab6a8a853e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwbm9vZGxlcyUyMGJha21pZXxlbnwxfHx8fDE3NzE5Mjk1NTF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      image: bakmieImg,
     },
     {
       name: 'Dimsum Mentai',
       description: 'Dimsum premium dengan saus mentai creamy yang lumer di mulut, perpaduan sempurna rasa gurih dan sedikit manis',
       price: 'Rp 20.000',
-      image: 'https://images.unsplash.com/photo-1753179253638-65a35859db6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaW1zdW0lMjBzdGVhbWVkJTIwZHVtcGxpbmdzfGVufDF8fHx8MTc3MTkyOTU1Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      image: dimsumImg,
     },
     {
       name: 'Nasi Goreng Bumbu Bali',
       description: 'Nasi goreng dengan bumbu rempah khas Bali yang aromatis, dilengkapi dengan ayam, telur mata sapi, dan kerupuk',
       price: 'Rp 25.000',
-      image: 'https://images.unsplash.com/photo-1559948271-7d5c98d2e951?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b250b24lMjBzb3VwJTIwYXNpYW58ZW58MXx8fHwxNzcxOTI5NTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      image: nasiGorengImg,
     },
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <h2 
             className="text-5xl md:text-6xl mb-4"
             style={{ fontFamily: "'Playfair Display', serif", color: '#1a1a1a' }}
@@ -36,12 +47,16 @@ export function MenuShowcase() {
           >
             Sajian mie dan dimsum terbaik yang dibuat dengan resep rahasia turun temurun
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {menuItems.map((item, index) => (
-            <div 
+            <motion.div 
               key={index}
+              initial={{ y: 60, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2, duration: 0.8 }}
               className="group bg-white overflow-hidden transition-all duration-300 hover:-translate-y-2"
               style={{
                 borderRadius: '8px',
@@ -77,7 +92,7 @@ export function MenuShowcase() {
                   {item.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

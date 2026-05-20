@@ -1,37 +1,35 @@
+import { motion } from 'framer-motion';
 import { Instagram } from 'lucide-react';
+import flw1 from '../../assets/images/follow-us section/flwus 1.jpg';
+import flw2 from '../../assets/images/follow-us section/flwus 2.jpg';
+import flw3 from '../../assets/images/follow-us section/flwus 3.jpg';
+import flw4 from '../../assets/images/follow-us section/flwus 4.jpg';
+import flw5 from '../../assets/images/follow-us section/flwus 5.jpg';
+import flw6 from '../../assets/images/follow-us section/flwus 6.jpg';
 
 export function SocialFeed() {
   const photos = [
-    {
-      url: 'https://images.unsplash.com/photo-1685209743819-dab6a8a853e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwbm9vZGxlcyUyMGJha21pZXxlbnwxfHx8fDE3NzE5Mjk1NTF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      likes: 234,
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1753179253638-65a35859db6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaW1zdW0lMjBzdGVhbWVkJTIwZHVtcGxpbmdzfGVufDF8fHx8MTc3MTkyOTU1Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      likes: 189,
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1757715375693-a98372cde4e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMGZvb2QlMjBwbGF0aW5nfGVufDF8fHx8MTc3MTkyOTkyM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      likes: 321,
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1649173284332-9d95b317fbd3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYW1lbiUyMG5vb2RsZXMlMjBjbG9zZXVwfGVufDF8fHx8MTc3MTkyOTkyNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      likes: 276,
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1670300522639-ce378e5d23a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkdW1wbGluZ3MlMjBmb29kJTIwcGhvdG9ncmFwaHl8ZW58MXx8fHwxNzcxOTI5OTI0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      likes: 198,
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1559948271-7d5c98d2e951?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b250b24lMjBzb3VwJTIwYXNpYW58ZW58MXx8fHwxNzcxOTI5NTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      likes: 167,
-    },
+    { url: flw1, likes: 234 },
+    { url: flw2, likes: 189 },
+    { url: flw3, likes: 321 },
+    { url: flw4, likes: 276 },
+    { url: flw5, likes: 198 },
+    { url: flw6, likes: 167 },
   ];
 
+  // Duplicate photos for seamless infinite scroll
+  const duplicatedPhotos = [...photos, ...photos];
+
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+    <section className="py-24 bg-gray-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
           <div className="flex items-center justify-center gap-3 mb-4">
             <Instagram 
               className="w-8 h-8"
@@ -59,26 +57,41 @@ export function SocialFeed() {
               color: '#DC2626',
             }}
           >
-            @kedaimiekita
+            @kedaimendua
           </a>
-        </div>
+        </motion.div>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {photos.map((photo, index) => (
+      {/* Infinite Scroll Container */}
+      <div className="relative flex overflow-hidden group">
+        <motion.div 
+          className="flex gap-4 px-4"
+          animate={{ x: [0, '-50%'] }}
+          transition={{ 
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 30,
+              ease: "linear",
+            }
+          }}
+          style={{ width: 'max-content' }}
+        >
+          {duplicatedPhotos.map((photo, index) => (
             <div 
               key={index}
-              className="relative aspect-square overflow-hidden group cursor-pointer"
+              className="relative w-64 aspect-square overflow-hidden cursor-pointer"
               style={{ borderRadius: '8px' }}
             >
               <img 
                 src={photo.url}
                 alt={`Instagram post ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover"
               />
               
               {/* Overlay on hover */}
               <div 
-                className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                className="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
               >
                 <div 
                   className="text-white text-center"
@@ -90,21 +103,21 @@ export function SocialFeed() {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
+      </div>
 
-        <div className="text-center mt-12">
-          <button 
-            className="px-8 py-3 text-white transition-all duration-300 hover:scale-105"
-            style={{ 
-              backgroundColor: '#DC2626',
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 500,
-              borderRadius: '6px',
-            }}
-          >
-            Lihat Lebih Banyak
-          </button>
-        </div>
+      <div className="text-center mt-12">
+        <button 
+          className="px-8 py-3 text-white transition-all duration-300 hover:scale-105"
+          style={{ 
+            backgroundColor: '#DC2626',
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 500,
+            borderRadius: '6px',
+          }}
+        >
+          Lihat Lebih Banyak
+        </button>
       </div>
     </section>
   );

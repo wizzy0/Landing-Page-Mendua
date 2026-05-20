@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Award, ShieldCheck, TrendingUp, Users } from 'lucide-react';
 
 export function Advantages() {
@@ -25,9 +26,15 @@ export function Advantages() {
   ];
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 max-w-4xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 max-w-4xl mx-auto"
+        >
           <h2 
             className="text-5xl md:text-6xl mb-6"
             style={{ fontFamily: "'Playfair Display', serif", color: '#1a1a1a' }}
@@ -40,14 +47,18 @@ export function Advantages() {
           >
             Produk kami telah dirancang melalui proses riset mendalam, untuk menghasilkan konsep usaha dan menu-menu yang sejalan dengan citarasa masyarakat Indonesia. Berikut ini beberapa hal yang merupakan keunggulan kami:
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {advantages.map((advantage, index) => {
             const Icon = advantage.icon;
             return (
-              <div 
+              <motion.div 
                 key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="bg-white p-8 transition-all duration-300 hover:-translate-y-2 group text-center"
                 style={{
                   borderRadius: '12px',
@@ -77,7 +88,7 @@ export function Advantages() {
                 >
                   {advantage.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>
