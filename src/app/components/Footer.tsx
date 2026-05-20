@@ -23,24 +23,24 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium">Jl. Raya Kuliner No. 88</p>
-                  <p className="opacity-90">Jakarta Selatan, DKI Jakarta 12345</p>
+                  <p className="font-medium">Jl. Letda Tantular No.7</p>
+                  <p className="opacity-90">Dangin Puri Klod, Denpasar Timur, Bali 80234</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <p>(021) 555-0888</p>
+                <p>+62 812-3456-7890</p>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 flex-shrink-0" />
-                <p>info@kedaimiekita.com</p>
+                <p>info@kedaimendua.com</p>
               </div>
               <div className="flex items-start gap-3 pt-2">
                 <Clock className="w-5 h-5 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Jam Buka</p>
-                  <p className="opacity-90">Senin-Jumat: 10.00 - 22.00 WIB</p>
-                  <p className="opacity-90">Sabtu-Minggu: 09.00 - 23.00 WIB</p>
+                  <p className="opacity-90">Senin - Minggu</p>
+                  <p className="opacity-90">11:00 AM - 10:00 PM</p>
                 </div>
               </div>
             </div>
@@ -53,14 +53,14 @@ export function Footer() {
               style={{ borderRadius: '8px' }}
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1234567890123!2d106.8229167!3d-6.2615234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.3315750035043!2d115.22772237583648!3d-8.660351291387214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2410053df1be7%3A0xd06ddf9eb0bb19ab!2sKedai%20mendua!5e0!3m2!1sen!2sid!4v1716196000000!5m2!1sen!2sid"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '300px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Lokasi Kedai"
+                title="Lokasi Kedai Mendua"
               />
             </div>
           </div>
@@ -72,7 +72,7 @@ export function Footer() {
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           <p className="text-sm">
-            © 2026 Kedai Mie Kita. Seluruh hak cipta dilindungi.
+            © 2026 Kedai Mendua. Seluruh hak cipta dilindungi.
           </p>
         </div>
       </div>
