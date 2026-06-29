@@ -1,3 +1,5 @@
+import ceritaKamiImg from '../../assets/images/Cerita Kami.jpeg';
+
 export function OurStory() {
   return (
     <section className="py-24 bg-gray-50">
@@ -22,7 +24,7 @@ export function OurStory() {
             }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1758354465013-847ebb9e5390?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhc2lhbiUyMHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzE4MTcxNDV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+              src={ceritaKamiImg}
               alt="Interior Kedai"
               className="w-full h-[450px] object-cover"
             />
